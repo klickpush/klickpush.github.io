@@ -10,8 +10,13 @@
 
     <div id="kpID" class="wrapper-300x250"> <a href="http://klickpush.github.io"><img src="http://placehold.it/300x250"</a> </div>
 <!-- <script src="//test.klickpush.com:3030/js/2/main.js"></script> -->
-
+    <span id="kp_user_id"></span>
     <script type="text/javascript">
+      function drawUserIdOnPage(user_id){
+        var span = document.getElementById('kp_user_id')
+        span.innerHTML = user_id;
+      }
+      
       var KpUserId = {}
       KpUserId.easyXDM = easyXDM.noConflict('KpUserId');
 
@@ -19,6 +24,7 @@
         remote: "http://test.klickpush.com:3000/cookie_view",
         onMessage: function(message, origin){
           console.log("Parent Received message", message, "from origin", origin);
+          drawUserIdOnPage(message);
         }
       });
 
