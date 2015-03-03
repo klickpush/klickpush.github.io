@@ -2,7 +2,7 @@
   <head>
     <title>Index</title>
     <script type="text/javascript" src="//test-ads.klickpush.com:3030/preview/2.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/easyXDM/2.4.17.1/easyXDM.min.js"></script>
+
   </head>
   <body>
     Take Survey by clicking <a href="#">here</a>
@@ -11,23 +11,23 @@
 <!-- <script src="//test.klickpush.com:3030/js/2/main.js"></script> -->
     <span id="kp_user_id"></span>
     <script type="text/javascript">
-      function drawUserIdOnPage(user_id){
-        var span = document.getElementById('kp_user_id')
-        span.innerHTML = user_id;
-      }
+      // function drawUserIdOnPage(user_id){
+      //   var span = document.getElementById('kp_user_id')
+      //   span.innerHTML = user_id;
+      // }
 
-      var KpUserId = {}
-      KpUserId.easyXDM = easyXDM.noConflict('KpUserId');
+      // var KpUserId = {}
+      // KpUserId.easyXDM = easyXDM.noConflict('KpUserId');
 
-      var socket = new KpUserId.easyXDM.Socket({
-        remote: "http://test.klickpush.com:3000/cookie_view",
-        onMessage: function(message, origin){
-          console.log("Parent Received message", message, "from origin", origin);
-          drawUserIdOnPage(message);
-        }
-      });
+      // var socket = new KpUserId.easyXDM.Socket({
+      //   remote: "http://test.klickpush.com:3000/cookie_view",
+      //   onMessage: function(message, origin){
+      //     console.log("Parent Received message", message, "from origin", origin);
+      //     drawUserIdOnPage(message);
+      //   }
+      // });
 
-      socket.postMessage("Hello, World!");
+      // socket.postMessage("Hello, World!");
 
     </script>
 
