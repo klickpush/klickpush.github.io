@@ -8,7 +8,22 @@
     Take Survey by clicking <a href="#">here</a>
 
     <div id="kpID" class="wrapper-300x250"> <a href="http://klickpush.github.io"><img src="http://placehold.it/300x250"</a> </div>
-<script src="//test.klickpush.com:3030/js/2/main.js"></script>
+<!-- <script src="//test.klickpush.com:3030/js/2/main.js"></script> -->
+
+    <script type="text/javascript">
+      var KpUserId = {}
+      KpUserId.easyXDM = easyXDM.noConflict('KpUserId');
+
+      var socket = new KpUserId.easyXDM.Socket({
+        remote: "http://test.klickpush.com:3000/cookie_view",
+        onMessage: function(message, origin){
+          console.log("Parent Received message", message, "from origin", origin);
+        }
+      });
+
+      socket.postMessage("Hello, World!");
+
+    </script>
 
   </body>
 </html>
