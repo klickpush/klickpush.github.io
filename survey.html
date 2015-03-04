@@ -5,20 +5,25 @@
   </head>
   <body>
     <input id="email" type="text"></input>
-    Provide your email address and click <a id="submit" href="/success.html?"></a>
+    Provide your email address and click <a id="submit" href="/success.html?email=__EMAIL__">here</a>
   </body>
 
   <script type="text/javascript">
     function sender(){
-      var tmp_email = document.getElementById('email');
+      var tmp_email = document.getElementById('email').value;
+      if(tmp_email.length > 0){
+        console.log('long enough')
+        var tmp_submit = document.getElementById('submit');
+        tmp_submit.href = tmp_submit.href.replace('__EMAIL__', encodeURIComponent(tmp_email));
+      }
     }
 
     var tmp_submit = document.getElementById('submit');
 
-    if (tmp_email.addEventListener) {
-      tmp_email.addEventListener('click', sender, false);      
+    if (tmp_submit.addEventListener) {
+      tmp_submit.addEventListener('click', sender, false);      
     } else {
-      tmp_email.attachEvent('onclick', sender);
+      tmp_submit.attachEvent('onclick', sender);
     }
 
 

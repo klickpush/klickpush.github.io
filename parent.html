@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/easyXDM/2.4.17.1/easyXDM.min.js"></script>
+  </head>
+  
+  <body>
+  <h1>PARENT</h1>
+
+    <span id="my-button">Send Message</span>
+    <span id="user_id"></span>
+
+    <iframe id="my-iframe" src="//test.klickpush.com:3000/cookie_view"></iframe>
+   
+    <script type="text/javascript">
+      var KpUserId = {}
+      KpUserId.easyXDM = easyXDM.noConflict('KpUserId');
+
+      var socket = new KpUserId.easyXDM.Socket({
+        remote: "http://test.klickpush.com:3000/cookie_view",
+        onMessage: function(message, origin){
+          console.log("Parent Received message", message, "from origin", origin);
+        }
+      });
+
+      socket.postMessage("Hello, World!");
+
+
+      // function sender(){
+      //   var iframe = document.getElementById('my-iframe');
+      //   var win = iframe.contentWindow;
+      //   win.postMessage('Hello, World!', 'http://test.klickpush.com:3000');
+      // }    
+
+
+      // var interval_id = window.setInterval(function(){
+      //   console.log('tmp....')
+      //   sender();
+      // }, 1)
+
+      // // var tmp = document.getElementById('my-button');
+      // // if (tmp.addEventListener) {
+      // //   tmp.addEventListener('click', sender, false);
+      // //   console.log('A Listening normal');
+      // // } else {
+      // //   tmp.attachEvent('onclick', sender);
+      // //   console.log('A Listening msft');
+      // // }
+
+      // function receiver(ev) {
+      //   console.log(ev);
+      //   var user_id_span = document.getElementById('user_id')
+      //   user_id_span.innerHTML = ev.data
+      //   window.clearInterval(interval_id);
+      // }
+      // console.log('Loading ');
+      // if (window.addEventListener) {
+      //   window.addEventListener('message', receiver, false);
+      //   console.log('Listening normal');
+      // } else {
+      //   window.attachEvent('onmessage', receiver);
+      //   console.log('Listening msft');
+      // }
+
+
+    </script>
+
+
+
+  </body>
+
+</html>
+

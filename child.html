@@ -1,0 +1,31 @@
+<html>
+
+<body>
+<h1>CHILD</h1>
+ 
+  <script type="text/javascript">
+    function receiver(ev) {
+      console.log('jasdf')
+      console.log(ev);
+      if (ev.origin !== 'http://test.klickpush.com:8000') {
+        return;
+      }
+      if(ev.data === 'Hello, World!'){
+        console.log(ev.data);
+        ev.source.postMessage('world', 'http://test.klickpush.com:8000');
+      }
+    }
+    console.log('Loading ');
+    if (window.addEventListener) {
+      window.addEventListener('message', receiver, false);
+      console.log('Listening normal');
+    } else {
+      window.attachEvent('onmessage', receiver);
+      console.log('Listening msft');
+    }
+  </script>
+
+
+</body>
+
+</html>
