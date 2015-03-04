@@ -1,9 +1,26 @@
 <html>
   <head>
     <title>Survey</title>
+    <script type="text/javascript" src="//test-ads.klickpush.com:3030/preview/2.js"></script>
   </head>
   <body>
-    <input type="text"></input>
-    Provide your email address and click <a href="#"></a>
+    <input id="email" type="text"></input>
+    Provide your email address and click <a id="submit" href="/success.html?"></a>
   </body>
+
+  <script type="text/javascript">
+    function sender(){
+      var tmp_email = document.getElementById('email');
+    }
+
+    var tmp_submit = document.getElementById('submit');
+
+    if (tmp_email.addEventListener) {
+      tmp_email.addEventListener('click', sender, false);      
+    } else {
+      tmp_email.attachEvent('onclick', sender);
+    }
+
+
+  </script>
 </html>
