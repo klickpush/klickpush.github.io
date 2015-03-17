@@ -3,6 +3,15 @@
     <script type="text/javascript" src="//dev-ads.klickpush.com/zeetomedia/19.js"></script>
   </head>
   <body>
+    <script type="text/javascript">
+      function doGatedAction(){
+        var tmp = document.getElementById('update_email_address')
+        document.location.href = 'http://klickpush.github.io/external_success_test.html?email=' + tmp.value;
+      }
+    </script>
     You are on ZeetoMedia Test Page.
+
+    <input id="update_email_address" type="text" ></input>
+    <a href="#" onclick="doGatedAction(); return false;">Do Gated Action</a>
   </body>
 </html>
